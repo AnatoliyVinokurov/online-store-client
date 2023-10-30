@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# Tech Store Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="./readme_assets/logo.png" width="15%"></a>
 
-## Available Scripts
+This is the client-side component of the Tech Store project. <a>https://github.com/AnatoliyVinokurov/online-store-server</a> The client is built using JavaScript, React, and leverages React Router DOM for routing. It provides a user-friendly interface to interact with the Tech Store server, allowing users to browse and shop for tech devices, manage their baskets, and more.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Project Structure](#project-structure)
+- [Key Features](#key-features)
+- [Getting Started](#getting-started)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The client-side project structure is organized to ensure maintainability and modularity:
 
-### `npm test`
+### `src`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `components`: Contains reusable UI components used throughout the application, such as product listings, shopping baskets, and user authentication.
+- `pages`: Defines the main pages of the application, including home, product details, shopping basket, and user authentication pages.
+- `services`: Encapsulates client-side services for making API requests to the server. For example, user registration and login services.
+- `routes`: Specifies the routing configuration using React Router DOM. It maps routes to their respective components.
+- `styles`: Houses CSS and styling files for the client application.
+- `utils`: Contains utility functions, helper methods, and constants used across the application.
+- `assets`: Stores static assets like images, logos, and fonts.
+- `config`: Manages configuration files or constants related to the client application.
 
-### `npm run build`
+## Key Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The client-side application provides several key features to enhance the user experience:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **User Authentication**: Users can register and log in to access their shopping baskets and enjoy personalized experiences.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Product Listings**: Browse and search for a wide range of tech devices, complete with images and detailed information.
 
-### `npm run eject`
+- **Product Details**: View detailed information about a specific product, including images, specifications, and user ratings.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Shopping Basket**: Add and remove products from your shopping basket, view the contents, and proceed to checkout.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Responsive Design**: The client application is designed to work seamlessly on various devices, including desktops, tablets, and mobile phones.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **User Profile**: Users can view and manage their profiles, including contact details and account settings.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Search Functionality**: Search for products by brand, type, or keywords.
 
-## Learn More
+- **Pagination**: Navigate through multiple pages of product listings.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Error Handling**: Provides informative error messages and a user-friendly interface for handling errors.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Getting Started
 
-### Code Splitting
+1. Clone this repository to your local environment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Install the required dependencies using the following command:
 
-### Analyzing the Bundle Size
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. Configure the client application based on your server's API endpoint. Update the API URL in the `services/api.js` file to match the server's address.
 
-### Making a Progressive Web App
+   ```javascript
+   const API_URL = '---';
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Run the client application using:
 
-### Advanced Configuration
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+5. Open your web browser and navigate to the specified development server address (e.g., `http://localhost:3000`).
 
-### Deployment
+## Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The client application relies on environment variables for certain configurations. These variables can be set in an `.env` file in the project's root directory.
 
-### `npm run build` fails to minify
+Example `.env` file:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```env
+REACT_APP_API_URL=http://your-server-api-url-here
+REACT_APP_BRANDS_LIMIT=10
+REACT_APP_TYPES_LIMIT=10
+```
+
+- `REACT_APP_API_URL`: Set this variable to the URL of your Tech Store server.
+
+- `REACT_APP_BRANDS_LIMIT` and `REACT_APP_TYPES_LIMIT`: Configure the number of brands and types to display on listing pages.
+
+## Usage
+
+The Tech Store client provides an intuitive and user-friendly interface for customers to explore and shop for tech devices. Users can register, log in, and browse a wide range of products, adding them to their shopping basket for easy checkout.
+
+For developers, the codebase is organized and structured for easy maintenance and scalability. You can further customize and enhance the application to meet your specific requirements.
+
+## Contributing
+
+Contributions to this project are welcome! If you have ideas for improvements, new features, or bug fixes, feel free to open an issue or submit a pull request. Collaborative efforts are encouraged.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute it as per the terms of the license.
+
+For questions, issues, or collaboration inquiries, please feel free to contact the project owner or contribute through GitHub.
+
+Happy shopping and coding!
