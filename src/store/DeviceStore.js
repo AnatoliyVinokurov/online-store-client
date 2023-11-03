@@ -14,6 +14,8 @@ export default class DeviceStore{
             {id: 1, name: "iphone 11 pro", price: 10, rating: 3, img:"https://img1.goodfon.com/original/4266x3072/e/e6/zhivotnoe-kot-bolshie-glaza.jpg"},
             {id: 2, name: "iphone 12 pro", price: 20, rating: 4, img:"https://img1.goodfon.com/original/4266x3072/e/e6/zhivotnoe-kot-bolshie-glaza.jpg"}
         ]
+        this._selectedType = {}
+        this._selectedBrand = {}
         makeAutoObservable(this)
     }
 
@@ -27,6 +29,14 @@ export default class DeviceStore{
         this._devices = devices
     }
 
+    setSelectedType(type){
+        this._selectedType = type
+    }
+
+    setSelectedBrand(brand){
+        this._selectedBrand = brand
+    }
+
     get types(){
         return this._types
     }
@@ -37,5 +47,13 @@ export default class DeviceStore{
 
     get devices(){
         return this._devices
+    }
+
+    get selectedType(){
+        return this._selectedType
+    }
+
+    get selectedBrand(){
+        return this._selectedBrand
     }
 }

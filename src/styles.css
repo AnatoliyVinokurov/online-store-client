@@ -1,0 +1,236 @@
+.custom-navbar {
+    background: linear-gradient(to right, #0076b4, #00a99d);
+    color: white;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand-link {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-brand-link:hover {
+    text-decoration: underline;
+}
+
+.type-item {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.type-item.active {
+    background-color: #0076b4;
+    color: white;
+}
+
+.brand-bar {
+    justify-content: space-between;
+}
+
+.brand-item {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.brand-item.active {
+    background-color: #0076b4;
+    color: white;
+}
+
+.device-list {
+    gap: 20px;
+}
+
+.device-item {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.device-item:hover {
+    transform: scale(1.05);
+}
+
+.device-card {
+    width: 150px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.device-card:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.device-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.device-info {
+    text-align: center;
+}
+
+.device-brand {
+    font-weight: bold;
+}
+
+.device-rating {
+    display: flex;
+    align-items: center;
+}
+
+.star-icon {
+    margin-right: 5px;
+}
+
+.device-name {
+    font-size: 14px;
+}
+
+.button {
+    background-color: #0076b4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #00a99d;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.type-bar {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.brand-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.device-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.device-item {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.device-item:hover {
+    transform: scale(1.05);
+}
+
+/* Добавьте стили для компонента DevicePage */
+.device-page {
+    margin-top: 30px;
+}
+
+.device-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.device-name {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 15px;
+}
+
+.rating-container {
+    background: url(./assets/star.png) no-repeat center center;
+    width: 240px;
+    height: 240px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.price-card {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    border: 5px solid lightgray;
+    padding: 15px;
+    margin-top: 15px;
+    font-size: 24px;
+}
+
+.description-container {
+    margin: 30px 0;
+    padding: 15px;
+    background: #f0f0f0;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.description-row {
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+
+.auth-container {
+    background: linear-gradient(to bottom, #fff, #f2f2f2);
+}
+
+.auth-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth-title {
+    font-size: 24px;
+    color: #333;
+}
+
+.admin-container {
+    background: linear-gradient(to bottom, #fff, #f2f2f2);
+    height: calc(100vh - 54px);
+    justify-content: center;
+}
+
+.admin-button {
+    width: 200px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.admin-button:hover {
+    background-color: #0076b4;
+    color: white;
+}

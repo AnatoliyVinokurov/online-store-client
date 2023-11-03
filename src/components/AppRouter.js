@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom'; // Import Routes, Route, and useNavigate
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { authRoutes, publicRoutes } from "../routes";
 import { Context } from "../index";
 
 const AppRouter = () => {
-    const { user } = useContext(Context); // Use useContext to access the context
-    console.log(user);
-    const navigate = useNavigate(); // Import useNavigate
+    const { user } = useContext(Context);
+    const navigate = useNavigate();
 
     if (!user.isAuth) {
-        navigate('/login'); // Redirect to the login page if not authenticated
+        navigate('/login');
     }
 
     return (
