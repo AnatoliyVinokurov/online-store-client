@@ -1,59 +1,65 @@
 import {makeAutoObservable} from "mobx";
 
-export default class DeviceStore{
+export default class DeviceStore {
     constructor() {
-        this._types = [
-            {id: 1, name: "ice"},
-            {id: 2, name: "smartphone"}
-        ]
-        this._brands = [
-            {id: 1, name: "samsung"},
-            {id: 2, name: "apple"}
-        ]
-        this._devices = [
-            {id: 1, name: "iphone 11 pro", price: 10, rating: 3, img:"https://img1.goodfon.com/original/4266x3072/e/e6/zhivotnoe-kot-bolshie-glaza.jpg"},
-            {id: 2, name: "iphone 12 pro", price: 20, rating: 4, img:"https://img1.goodfon.com/original/4266x3072/e/e6/zhivotnoe-kot-bolshie-glaza.jpg"}
-        ]
+        this._types = []
+        this._brands = []
+        this._devices = []
         this._selectedType = {}
         this._selectedBrand = {}
+        this._page = 1
+        this._totalCount = 0
+        this._limit = 3
         makeAutoObservable(this)
     }
 
-    setTypes(types){
+    setTypes(types) {
         this._types = types
     }
-    setBrands(brands){
+    setBrands(brands) {
         this._brands = brands
     }
-    setDevices(devices){
+    setDevices(devices) {
         this._devices = devices
     }
 
-    setSelectedType(type){
+    setSelectedType(type) {
+        this.setPage(1)
         this._selectedType = type
     }
-
-    setSelectedBrand(brand){
+    setSelectedBrand(brand) {
+        this.setPage(1)
         this._selectedBrand = brand
     }
+    setPage(page) {
+        this._page = page
+    }
+    setTotalCount(count) {
+        this._totalCount = count
+    }
 
-    get types(){
+    get types() {
         return this._types
     }
-
-    get brands(){
+    get brands() {
         return this._brands
     }
-
-    get devices(){
+    get devices() {
         return this._devices
     }
-
-    get selectedType(){
+    get selectedType() {
         return this._selectedType
     }
-
-    get selectedBrand(){
+    get selectedBrand() {
         return this._selectedBrand
+    }
+    get totalCount() {
+        return this._totalCount
+    }
+    get page() {
+        return this._page
+    }
+    get limit() {
+        return this._limit
     }
 }

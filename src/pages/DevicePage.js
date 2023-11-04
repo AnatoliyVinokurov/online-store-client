@@ -1,63 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
-import bigStar from '../assets/star.png';
+import bigStar from '../assets/bigStar.png';
+import { useParams } from 'react-router-dom';
+import { fetchOneDevice } from '../http/deviceAPI';
 import '../styles.css';
 
 const DevicePage = () => {
-    const device = {
-        id: 1,
-        name: 'iphone 11 pro',
-        price: 10,
-        rating: 3,
-        img:
-            'https://img1.goodfon.com/original/4266x3072/e/e6/zhivotnoe-kot-bolshie-glaza.jpg',
-    };
+  const [device, setDevice] = useState({ info: [] });
+  const { id } = useParams();
+  const [cart, setCart] = useState([]); // Состояние для корзины
 
-    const description = [
-        { id: 1, title: 'Color', description: 'Silver' },
-        { id: 2, title: 'Storage', description: '128GB' },
-    ];
+  useEffect(() => {
+    fetchOneDevice(id).then((data) => setDevice(data));
+  }, [id]);
 
-    return (
-        <Container className="device-page">
-            <Row>
-                <Col md={4}>
-                    <Image
-                        className="device-image"
-                        src={device.img}
-                        alt={device.name}
-                    />
-                </Col>
-                <Col md={4}>
-                    <Row className="d-flex flex-column align-items-center">
-                        <h2 className="device-name">{device.name}</h2>
-                        <div className="rating-container">
-                            {device.rating}
-                        </div>
-                    </Row>
-                </Col>
-                <Col md={4}>
-                    <Card className="price-card">
-                        <h3>Price: {device.price} USD</h3>
-                        <Button variant="outline-dark">Add to Cart</Button>
-                    </Card>
-                </Col>
-            </Row>
-            <Row className="d-flex flex-column m-3 description-container">
-                <h1>Specifications</h1>
-                {description.map((info, index) => (
-                    <Row
-                        key={info.id}
-                        className={`description-row ${
-                            index % 2 === 0 ? 'even' : 'odd'
-                        }`}
-                    >
-                        {info.title}: {info.description}
-                    </Row>
-                ))}
-            </Row>
-        </Container>
-    );
+  const addToCart = () => {
+    // Создаем копию текущей корзины и добавляем выбранный товар
+    const updatedCart = [...cart, device];
+    setCart(updatedCart);
+  };
+
+  return (
+    <Container className="mt-3 device-container">
+      <Row>
+        <Col md={4}>
+          <Image width={300} height={300} src={process.env.REACT_APP_API_URL + device.img} />
+        </Col>
+        <Col md={4}>
+          <Row className="d-flex flex-column align-items-center">
+            <h2 className="device-name">{device.name}</h2>
+            <div
+              className="rating-container"
+              style={{ backgroundImage: `url(${bigStar})` }}
+            >
+              <div className="rating">{device.rating}</div>
+            </div>
+          </Row>
+        </Col>
+        <Col md={4}>
+          <Card className="price-card">
+            <h3 className="device-price">От: {device.price} руб.</h3>
+            <Button variant="outline-dark" onClick={addToCart}>Добавить в корзину</Button>
+          </Card>
+        </Col>
+      </Row>
+      <Row className="d-flex flex-column m-3">
+        <h1>Характеристики</h1>
+        {device.info.map((info, index) => (
+          <Row key={info.id} className={index % 2 === 0 ? 'info-row-light' : 'info-row-dark'}>
+            {info.title}: {info.description}
+          </Row>
+        ))}
+      </Row>
+    </Container>
+  );
 };
 
 export default DevicePage;

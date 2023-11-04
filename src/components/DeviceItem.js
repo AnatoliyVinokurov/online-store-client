@@ -1,25 +1,29 @@
 import React from 'react';
-import { Col, Card, Image } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 import star from '../assets/star.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { DEVICE_ROUTE } from "../utils/consts";
-import '../styles.css';
 
 const DeviceItem = ({ device }) => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Use useNavigate to get the navigation function
+
+    const handleRedirect = () => {
+        navigate(DEVICE_ROUTE + '/' + device.id); // Use navigate to navigate to a different route
+    };
 
     return (
-        <Col md={3} className="mt-3 device-item" onClick={() => navigate(DEVICE_ROUTE + '/' + device.id)}>
-            <Card className="device-card" border="light">
-                <Image className="device-image" src={device.img} alt={device.name} />
+        <Col md={3} className={"mt-3"} onClick={handleRedirect}>
+            <Card style={{ width: 150, cursor: 'pointer' }} border={"light"}>
+                <Image width={150} height={150} src={process.env.REACT_APP_API_URL + device.img} />
                 <div className="text-black-50 mt-1 d-flex justify-content-between align-items-center">
-                    <div className="device-brand">{device.name}</div>
-                    <div className="d-flex align-items-center device-rating">
+                    <div>Samsung...</div>
+                    <div className="d-flex align-items-center">
                         <div>{device.rating}</div>
-                        <Image className="star-icon" src={star} alt="Star" />
+                        <Image width={18} height={18} src={star} />
                     </div>
                 </div>
-                <div className="device-name">{device.name}</div>
+                <div>{device.name}</div>
             </Card>
         </Col>
     );
